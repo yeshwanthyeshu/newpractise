@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+	<script src="./angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<!--bootrap-->
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="text-center">
+		<h1>AngualarJS Practice</h1>
+	</div>
+	<!--this div contains all the angularJS-->
+	<div ng-app="myApp" class="text-center">
+		<p style="color:{{mycolor}}">
+			I am from app level and I am {{mycolor}} (the color of the p tag in from app level scope)
+		</p>
+
+		<!--the scope of the controller starts-->
+		<div ng-controller="myctrl">
+			A simple expression:<br>
+			The answer for 2+5 is ={{2+5}}<br>
+			this is done by {{name}}<br><hr>
+			<label>
+				Enter a color and the color appears in the input box:
+			</label>
+			<input style="background-color:{{defaultcolor}}" ng-model="defaultcolor" value="{{defaultcolor}}"/>
+			<hr>
+			<myowndirective></myowndirective>
+			<hr>
+			<p style="color:{{mycolor}}">
+				my friends are:(fetching data from array)
+			</p>
+			<div ng-repeat="name in myfriendsarray">
+				{{name}}
+			</div>
+			<hr>
+			<p>
+				My details are:(fetching data from json):
+			</p>
+			<div ng-repeat="num in mydetails" >
+				{{num.name}}
+			</div>
+			<hr>
+			<p style="color:{{mycolor}}">
+				select one form below
+			</p>
+			<select ng-model="selection">
+				<option value="none">none</option>
+				<option value="one">one</option>
+				<option value="two">two</option>
+			</select>
+			<p>Your selected: {{selection}}</p>
+			<hr>
+			<form name="sampleform">
+				<p>This is simple responsive validation of email</p>
+				<label>
+					Enter your email
+				</label>
+				<input id="email" type="email" ng-model="email" name="email"/>
+				<span ng-show="!sampleform.email.$error.email">
+					your valid email is {{email}}
+				</span>
+			</form>
+			<hr>
+			<div>
+				<p>
+					This is example of increment (click to like)
+				</p>
+				<button class="btn-primary" ng-click="plusOne()">
+					clickme
+				</button>
+			your likes:	{{likes}}
+			</div>
+			<p>you are looking at: {{myUrl}}</p>
+			<div>
+				<p>
+					click button to show the alert
+				</p>
+				<button class="btn-primary" ng-click="alertme()">
+					Alertme
+				</button>
+				
+			</div>
+			<hr>
+			<div>
+				<p>the below is timeout function(refresh the page and see the changing)</p>
+				{{mymessage}}
+				the current time: {{mytime}}
+			</div>
+			<hr>
+			<div>
+				<p>
+					Your sample http get call: {{myjsondatahttp}}
+				</p>
+			</div>
+			<hr>
+			<div>
+				<hr>
+				Enter in the input to convert to binary:
+				<input name="tobinary" ng-model="mybinary"/>
+				<p>{{mybinary.toString(2)}}</p>
+			</div>
+			<hr>
+			
+			<form>
+				Pick a topic(An simple raido button):
+				<input type="radio" ng-model="myVar" value="dogs">Dogs
+				<input type="radio" ng-model="myVar" value="tuts">Tutorials
+				<input type="radio" ng-model="myVar" value="cars">Cars
+			</form>
+
+			<div ng-switch="myVar">
+				<div ng-switch-when="dogs">
+					<h1>
+						Dogs
+					</h1>
+					<p>
+						Welcome to a world of dogs.
+					</p>
+				</div>
+				<div ng-switch-when="tuts">
+					<h1>
+						Tutorials
+					</h1>
+					<p>
+						Learn from examples.
+					</p>
+				</div>
+				<div ng-switch-when="cars">
+					<h1>
+						Cars
+					</h1>
+					<p>
+						Read about cars.
+					</p>
+				</div>
+			</div>
+			<hr>
+			<p>A simple route example
+				<a href="#/!">
+					Main
+				</a>
+			</p>
+			<a href="#!red">
+				Red
+			</a>
+			<a href="#!green">
+				Green
+			</a>
+			<a href="#!blue">
+				Blue
+			</a>
+			<div ng-view></div>
+
+			<div>
+				<p>
+					The bellow is example for service, factory and provider.
+				</p>
+				 <p>
+					From Service: {{serviceName}}
+				</p>
+				<p>
+					From Factory: {{factoryName}}
+				</p>
+				<p>
+					From Provider: {{providerName}}
+				</p>
+			</div>	
+			
+			
+		</div>
+		
+	</div>
+
+	<link rel="stylesheet" type="text/css" href="./mystyle.css">
+	<script src="./myscript.js"></script>
+	<script src="./mycontroller.js"></script>
+</body>
+</html>

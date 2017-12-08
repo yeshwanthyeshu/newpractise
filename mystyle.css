@@ -1,0 +1,10 @@
+
+#email.ng-invalid {
+	background-color: red;
+}
+#email.ng-valid {
+	background-color: green;
+}
+#email.ng-pristine {
+	background-color: yellow;
+}
